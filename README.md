@@ -1,0 +1,2 @@
+# smwp
+React Wordpress Theme
