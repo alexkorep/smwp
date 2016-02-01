@@ -14,30 +14,33 @@
 
   <body <?php body_class(); ?> style="font-family: 'Ubuntu', sans-serif;">
     <div class="section">
-      <div class="background-image" style="background-image : url('<?php bloginfo('template_directory'); ?>/img/background.jpg')"></div>
+      <div class="background-image" style="background-image : url('<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>')"></div>
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-12 p-y-lg text-center" style="background-color: rgba(245, 245, 245, 0.8);">
+                  <h1 class="display-2 m-y-md">Smilenglish</h1>
+                  <h1 class="display-4 m-y-md">британский английский для детей</h1>
+              </div>
+          </div>
+      </div>
+
+      <!--div class="background-image" style="background-image : url('<?php bloginfo('template_directory'); ?>/img/background.jpg')"></div>
       <div class="container">
         <div class="row">
-          <div class="row smwp-toprow">
-            <div class="col-lg-2 col-sm-3">
-              <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-                <div class='site-logo'>
-                  <a href='<?php echo esc_url( home_url( '/' ) ); ?>'
-                    title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
-                    rel='home'>
-                    <img src="<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>"
-                      alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
-                      class="center-block img-fluid m-t-md" />
-                  </a>
-                </div>
-              <?php endif; ?>
-            </div>
-            <div class="col-lg-10 col-sm-9">
-              <h1 class="display-4 m-t-md pi-item"><?php bloginfo( 'name' ); ?></h1>
-              <p class="lead pi-item"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
-            </div>
+          <div class="col-lg-12 p-y-sm text-center smwp-toprow">
+            <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+              <a href='<?php echo esc_url( home_url( '/' ) ); ?>'
+                title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
+                rel='home'>
+                <img src="<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>"
+                  alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+                  class="center-block img-fluid m-t-md" />
+              </a>
+            <?php endif; ?>
+            <h1 class="display-5 m-y-md"><?php echo get_bloginfo( 'description', 'display' ); ?></h1>
           </div>
         </div>
-      </div>
+      </div-->
     </div>
 
     <div class="p-y-lg section">
