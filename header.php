@@ -13,36 +13,69 @@
   </head>
 
   <body <?php body_class(); ?> style="font-family: 'Ubuntu', sans-serif;">
-    <div class="section">
-      <div class="background-image" style="background-image : url('<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>')"></div>
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-12 p-y-lg text-center" style="background-color: rgba(245, 245, 245, 0.8);">
-                  <h1 class="display-2 m-y-md">Smilenglish</h1>
-                  <h1 class="display-4 m-y-md">британский английский для детей</h1>
-              </div>
-          </div>
-      </div>
 
-      <!--div class="background-image" style="background-image : url('<?php bloginfo('template_directory'); ?>/img/background.jpg')"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 p-y-sm text-center smwp-toprow">
-            <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-              <a href='<?php echo esc_url( home_url( '/' ) ); ?>'
-                title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
-                rel='home'>
-                <img src="<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>"
-                  alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
-                  class="center-block img-fluid m-t-md" />
-              </a>
-            <?php endif; ?>
-            <h1 class="display-5 m-y-md"><?php echo get_bloginfo( 'description', 'display' ); ?></h1>
-          </div>
-        </div>
-      </div-->
+    <!-- Menu -->
+    <div class="row">
+      <?php wp_nav_menu( array(
+        'theme_location' => 'topmost-menu',
+        'container'       => 'div',
+        'container_class' => 'col-md-12',
+        'menu_class'      => 'menu nav nav-pills',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '<div class="nav-item">',
+        'after'           => '</div>',
+        'link_before'     => '<span class="nav-link">',
+        'link_after'      => '</span>',
+        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+        'depth'           => 0
+      ) ); ?>
     </div>
 
+    <!--div class="row">
+      <div class="col-md-12">
+        <ul class="nav nav-pills">
+          <li class="nav-item">
+            <a href="#" class="active nav-link">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">Messages</a>
+          </li>
+        </ul>
+      </div>
+    </div-->
+
+
+
+    <div class="section">
+      <div class="background-image" style="background-image : url('<?php bloginfo('template_directory'); ?>/img/background.jpg')"></div>
+
+      <div class="container">
+        <div class="row smwp-toprow">
+          <div class="col-lg-2 col-sm-3">
+            <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+              <div class='site-logo'>
+                <a href='<?php echo esc_url( home_url( '/' ) ); ?>'
+                  title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
+                  rel='home'>
+                  <img src="<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>"
+                    alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+                    class="center-block img-fluid m-t-md" />
+                </a>
+              </div>
+            <?php endif; ?>
+          </div>
+          <div class="col-lg-10 col-sm-9">
+            <h1 class="display-4 m-t-md pi-item"><?php bloginfo( 'name' ); ?></h1>
+            <p class="lead pi-item"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
     <div class="p-y-lg section">
       <div class="container">
         <div class="row">
