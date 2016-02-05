@@ -48,6 +48,32 @@ function home_widgets_init() {
     'before_title' => '<h3>',
     'after_title' => '</h3>',
   ));
+
+  register_sidebar(array(
+    'name' => 'Bottom left pane',
+    'id' => 'bottom_left',
+    'before_widget' => '<div>',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  ));
+  register_sidebar(array(
+    'name' => 'Bottom center pane',
+    'id' => 'bottom_center',
+    'before_widget' => '<div>',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  ));
+  register_sidebar(array(
+    'name' => 'Bottom right pane',
+    'id' => 'bottom_right',
+    'before_widget' => '<div>',
+    'after_widget' => '</div>',
+    'before_title' => '<h3>',
+    'after_title' => '</h3>',
+  ));
+
 }
 
 add_action('widgets_init', 'home_widgets_init');

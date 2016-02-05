@@ -8,13 +8,20 @@
     <div class="section">
       <div class="container">
         <div class="row smwp-toprow">
-          <div class="col-lg-12">
-            <address class="m-y-lg text-center">
-                              <strong>Company name, Inc.</strong>
-                              <br>795 Folsom Ave, Suite 600
-                              <br>San Francisco, CA 94107
-                              <br>
-                              <abbr title="Phone">P:</abbr>(123) 456-7890</address>
+          <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4 m-t-md">
+              <?php if (is_active_sidebar('bottom_left')): ?>
+                  <?php dynamic_sidebar('bottom_left');?>
+              <?php endif;?>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4 m-t-md">
+              <?php if (is_active_sidebar('bottom_center')): ?>
+                  <?php dynamic_sidebar('bottom_center');?>
+              <?php endif;?>
+          </div>
+          <div class="col-md-4 col-sm-4 col-xs-12 col-lg-4 m-t-md">
+              <?php if (is_active_sidebar('bottom_right')): ?>
+                  <?php dynamic_sidebar('bottom_right');?>
+              <?php endif;?>
           </div>
         </div>
       </div>
