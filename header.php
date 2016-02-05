@@ -15,44 +15,28 @@
   <body <?php body_class(); ?> style="font-family: 'Ubuntu', sans-serif;">
 
     <!-- Menu -->
-    <div class="row">
-      <?php wp_nav_menu( array(
-        'theme_location' => 'topmost-menu',
-        'container'       => 'div',
-        'container_class' => 'col-md-12',
-        'menu_class'      => 'menu nav nav-pills',
-        'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
-        'before'          => '<div class="nav-item">',
-        'after'           => '</div>',
-        'link_before'     => '<span class="nav-link">',
-        'link_after'      => '</span>',
-        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-        'depth'           => 0
-      ) ); ?>
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <?php wp_nav_menu( array(
+            'theme_location' => 'topmost-menu',
+            'container'       => 'div',
+            'container_class' => 'col-md-12',
+            'menu_class'      => 'menu nav nav-pills',
+            'echo'            => true,
+            'fallback_cb'     => 'wp_page_menu',
+            'before'          => '<div class="nav-item">',
+            'after'           => '</div>',
+            'link_before'     => '<span class="nav-link">',
+            'link_after'      => '</span>',
+            'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+            'depth'           => 0
+          ) ); ?>
+        </div>
+      </div>
     </div>
 
-    <!--div class="row">
-      <div class="col-md-12">
-        <ul class="nav nav-pills">
-          <li class="nav-item">
-            <a href="#" class="active nav-link">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Profile</a>
-          </li>
-          <li class="nav-item">
-            <a href="#" class="nav-link">Messages</a>
-          </li>
-        </ul>
-      </div>
-    </div-->
-
-
-
     <div class="section">
-      <div class="background-image" style="background-image : url('<?php bloginfo('template_directory'); ?>/img/background.jpg')"></div>
-
       <div class="container">
         <div class="row smwp-toprow">
           <div class="col-lg-2 col-sm-3">
