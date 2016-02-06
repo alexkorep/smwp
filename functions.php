@@ -79,6 +79,8 @@ function home_widgets_init() {
 add_action('widgets_init', 'home_widgets_init');
 
 require get_template_directory() . '/inc/widget_textarea_button.php';
+require get_template_directory() . '/inc/widget_product_list_menu.php';
+require get_template_directory() . '/inc/shortcode_child_pages.php';
 
 /////////////////////////////////////////////////////////////
 // Menu
