@@ -23,8 +23,12 @@ class widget_product_list_menu extends WP_Widget {
     $parent = $instance['parent'];
     // before and after widget arguments are defined by themes
     echo $args['before_widget'];
+    echo '<div class="card"><div class="card-block">';
+
     if (!empty($title)) {
-      echo $args['before_title'] . $title . $args['after_title'];
+      echo '<h3 class="card-title">';
+      echo $title;
+      echo '</h3>';
     }
 
     // This is where you run the code and display the output
@@ -35,8 +39,8 @@ class widget_product_list_menu extends WP_Widget {
       $childpages = '<ul>' . $childpages . '</ul>';
     }
 
-    echo $childpages;
-    //echo '<p><a href="' . $link . '" class="btn btn-secondary">' . $button . '</a></p>';
+    echo '<p class="card-text">' . $childpages . '</p>';
+    echo '</div></div>';
     echo $args['after_widget'];
   }
 
