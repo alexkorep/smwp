@@ -11,7 +11,7 @@ class wpb_widget extends WP_Widget {
       __('WPBeginner Widget', 'wpb_widget_domain'),
 
       // Widget description
-      array('description' => __('Sample widget based on WPBeginner Tutorial', 'wpb_widget_domain'))
+      array('description' => __('Text widget with button', 'wpb_widget_domain'))
     );
   }
 
@@ -23,14 +23,26 @@ class wpb_widget extends WP_Widget {
     $button = $instance['button'];
     $link = $instance['link'];
     // before and after widget arguments are defined by themes
+
+    $content = apply_filters( 'widget_text', $content, $instance, $this );
+    $content = !empty( $instance['filter'] ) ? wpautop( $content ) : $content;
+
+
     echo $args['before_widget'];
+    echo '<div class="card"><div class="card-block">';
     if (!empty($title)) {
-      echo $args['before_title'] . $title . $args['after_title'];
+      echo '<h3 class="card-title">';
+      echo $title;
+      echo '</h3>';
     }
 
     // This is where you run the code and display the output
-    echo '<div>' . $content . '</div>';
-    echo '<p><a href="' . $link . '" class="btn btn-secondary">' . $button . '</a></p>';
+    echo '<p class="card-text">' . $content . '</p>';
+
+    if (!empty($link)) {
+      echo '<a href="' . $link . '" class="btn btn-primary">' . $button . '</a>';
+    }
+    echo '</div></div>';
     echo $args['after_widget'];
   }
 
@@ -45,6 +57,7 @@ class wpb_widget extends WP_Widget {
     $content = (isset($instance['content']) ? $instance['content'] : '');
     $button = (isset($instance['button']) ? $instance['button'] : 'Go');
     $link = (isset($instance['link']) ? $instance['link'] : 'http://');
+    $filter = (isset($instance['filter']) ? $instance['filter'] : false);
 
     // Widget admin form
     ?>
@@ -55,13 +68,17 @@ class wpb_widget extends WP_Widget {
       type="text"
       value="<?php echo esc_attr($title);?>" />
   </p>
-  <p>
-    <label for="<?php echo $this->get_field_id('content');?>"><?php _e('Content:');?></label>
-    <textarea id="<?php echo $this->get_field_id('content');?>"
-      name="<?php echo $this->get_field_name('content');?>"><?php
-echo esc_textarea($content);
-    ?></textarea>
-  </p>
+
+  <p><label for="<?php echo $this->get_field_id( 'content' ); ?>"><?php _e( 'Content:' ); ?></label>
+  <textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id('content'); ?>"
+    name="<?php echo $this->get_field_name('content');
+    ?>"><?php echo esc_textarea( $instance['content'] ); ?></textarea></p>
+
+
+  <p><input id="<?php echo $this->get_field_id('filter'); ?>"
+    name="<?php echo $this->get_field_name('filter'); ?>"
+    type="checkbox"<?php checked( $filter ); ?> />&nbsp;<label
+    for="<?php echo $this->get_field_id('filter'); ?>"><?php _e('Automatically add paragraphs'); ?></label></p>
   <p>
     <label for="<?php echo $this->get_field_id('button');?>"><?php _e('Button text:');?></label>
     <input class="widefat" id="<?php echo $this->get_field_id('button');?>"
@@ -83,7 +100,13 @@ echo esc_textarea($content);
   public function update($new_instance, $old_instance) {
     $instance = array();
     $instance['title'] = (!empty($new_instance['title'])) ? strip_tags($new_instance['title']) : '';
-    $instance['content'] = (!empty($new_instance['content'])) ? strip_tags($new_instance['content']) : '';
+
+    if ( current_user_can('unfiltered_html') )
+      $instance['content'] =  $new_instance['content'];
+    else
+      $instance['content'] = wp_kses_post( stripslashes( $new_instance['content'] ) );
+
+    $instance['filter'] = ! empty( $new_instance['filter'] );
     $instance['button'] = (!empty($new_instance['button'])) ? strip_tags($new_instance['button']) : '';
     $instance['link'] = (!empty($new_instance['link'])) ? strip_tags($new_instance['link']) : '';
     return $instance;
