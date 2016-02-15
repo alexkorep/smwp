@@ -14,7 +14,33 @@
 
   <body <?php body_class(); ?> style="font-family: 'Ubuntu', sans-serif;">
 
-    <!-- Menu -->
+
+
+<div class="container-full">
+  <div class="row">
+    <div class="col-lg-12">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-2 col-sm-3">
+            <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
+              <div class='site-logo'>
+                <a href='<?php echo esc_url( home_url( '/' ) ); ?>'
+                  title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
+                  rel='home'>
+                  <img src="<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>"
+                    alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
+                    class="center-block img-fluid m-y-md img-circle img-responsive" />
+                </a>
+              </div>
+            <?php endif; ?>
+          </div>
+          <div class="col-lg-10 col-sm-9">
+            <h1 class="display-4 m-t-md pi-item"><?php bloginfo( 'name' ); ?></h1>
+            <p class="lead pi-item"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+
+
+<!-- Menu -->
     <div class="section">
       <div class="container">
         <div class="row">
@@ -36,31 +62,17 @@
       </div>
     </div>
 
-    <div class="section">
-      <div class="container">
-        <div class="row smwp-toprow">
-          <div class="col-lg-2 col-sm-3">
-            <?php if ( get_theme_mod( 'themeslug_logo' ) ) : ?>
-              <div class='site-logo'>
-                <a href='<?php echo esc_url( home_url( '/' ) ); ?>'
-                  title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'
-                  rel='home'>
-                  <img src="<?php echo esc_url( get_theme_mod( 'themeslug_logo' ) ); ?>"
-                    alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>"
-                    class="center-block img-fluid m-t-md" />
-                </a>
-              </div>
-            <?php endif; ?>
-          </div>
-          <div class="col-lg-10 col-sm-9">
-            <h1 class="display-4 m-t-md pi-item"><?php bloginfo( 'name' ); ?></h1>
-            <p class="lead pi-item"><?php echo get_bloginfo( 'description', 'display' ); ?></p>
+
           </div>
         </div>
       </div>
 
+
     </div>
-    <div class="p-y-lg section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12">
+  </div>
+</div>
+<!-- /container full -->
+
+<div class="container">
+  <hr />
+  <div class="row">
