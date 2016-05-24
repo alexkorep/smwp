@@ -73,7 +73,7 @@ function home_widgets_init() {
     'before_title' => '<h3>',
     'after_title' => '</h3>',
   ));
-
+  
 }
 
 add_action('widgets_init', 'home_widgets_init');
@@ -90,7 +90,7 @@ function register_my_menu() {
 add_action('init', 'register_my_menu');
 
 ///////////////////////////////////////////////////////////////
-// Catecory titles
+// Category titles
 add_filter('get_the_archive_title', function ($title) {
   if (is_category()) {
     $title = single_cat_title('', false);
@@ -102,4 +102,5 @@ add_filter('get_the_archive_title', function ($title) {
   return $title;
 });
 
+require_once('wp_bootstrap_navwalker.php');
 ?>
