@@ -8,20 +8,16 @@ get_header(); ?>
           <div class="col-md-6 col-sm-12 col-xs-12 col-lg-6">
 
 
-            <?php
-				// Start the Loop.
-				while ( have_posts() ) : the_post();
+            <?php the_title( '<h1>', '</h1>' ); ?>
 
-					/*
-					 * Include the post format-specific template for the content. If you want to
-					 * use this in a child theme, then include a file called called content-___.php
-					 * (where ___ is the post format) and that will be used instead.
-					 */
-					get_template_part( 'content', get_post_format() );
-
-				endwhile;
-			?>
-
+            <div>
+              <?php
+                while ( have_posts() ) : the_post();
+                  the_content();
+                endwhile;
+              ?>
+            </div>
+            
 <!-- Put this script tag to the <head> of your page -->
 <script type="text/javascript" src="//vk.com/js/api/openapi.js?122"></script>
 
